@@ -1,5 +1,4 @@
 import SwiftUI
-import SwiftData
 
 struct SplashScreen: View {
     @State private var scale: CGFloat = 1.5
