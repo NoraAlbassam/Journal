@@ -18,9 +18,9 @@ The Journal App offers an organized and private space for users to document thei
 )
 
 ### Adding a Journal Entry
-![Add Entry](![IMG_0051](https://github.com/user-attachments/assets/0b508d46-ce69-4d14-96df-2f9453ed8a18)
+(![IMG_0051](https://github.com/user-attachments/assets/0b508d46-ce69-4d14-96df-2f9453ed8a18)
 )
 
 ### Filtering and Searching
-![Filter and Search](![IMG_0052](https://github.com/user-attachments/assets/0f4a9bdd-317b-48c5-b604-7ae0245570d3)
+(![IMG_0052](https://github.com/user-attachments/assets/0f4a9bdd-317b-48c5-b604-7ae0245570d3)
 )
