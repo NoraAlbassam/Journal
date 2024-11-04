@@ -10,16 +10,12 @@ The Journal App offers an organized and private space for users to document thei
 - Keep track of their day-to-day life. ✨
 - Bookmark significant entries. 📎
 - Quickly search through past entries based on keywords. 🔍
+- Edit and Delete specific entries. 📝
 
 - ## Screenshots
 
-### Main Journal View
-(![‏لقطة شاشة ٢٠٢٤-١١-٠٤ في ٣ ٠٠ ٤١ م](https://github.com/user-attachments/assets/6276d038-35de-4449-93a0-446c948e2c02)
+| Main Journal View | Adding a Journal Entry | Filtering and Searching | Edit/Delete |
+|-------------------|-----------------------|-------------------------|-------------------|
+| <img src="https://github.com/user-attachments/assets/b25be791-80f8-4dca-87c4-ffff8bea9f89" alt="Main Journal View" width="200"/> | <img src="https://github.com/user-attachments/assets/c825b4ba-57cf-4583-b3f7-aa258b91c8d4" alt="Adding a Journal Entry" width="200"/> | <img src="https://github.com/user-attachments/assets/01689e41-b217-40e8-b83c-acc87536dd11" alt="Filtering and Searching" width="200"/> | <img src="https://github.com/user-attachments/assets/cb3fe157-eb16-4ffc-af56-e189d5199173" alt="Edit/Delete Title" width="200"/> |
 
 
-### Adding a Journal Entry
-(![IMG_0051](https://github.com/user-attachments/assets/0b508d46-ce69-4d14-96df-2f9453ed8a18)
-
-
-### Filtering and Searching
-(![IMG_0052](https://github.com/user-attachments/assets/0f4a9bdd-317b-48c5-b604-7ae0245570d3))
