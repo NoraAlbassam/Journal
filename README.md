@@ -15,12 +15,11 @@ The Journal App offers an organized and private space for users to document thei
 
 ### Main Journal View
 (![‏لقطة شاشة ٢٠٢٤-١١-٠٤ في ٣ ٠٠ ٤١ م](https://github.com/user-attachments/assets/6276d038-35de-4449-93a0-446c948e2c02)
-)
+
 
 ### Adding a Journal Entry
 (![IMG_0051](https://github.com/user-attachments/assets/0b508d46-ce69-4d14-96df-2f9453ed8a18)
-)
+
 
 ### Filtering and Searching
-(![IMG_0052](https://github.com/user-attachments/assets/0f4a9bdd-317b-48c5-b604-7ae0245570d3)
-)
+(![IMG_0052](https://github.com/user-attachments/assets/0f4a9bdd-317b-48c5-b604-7ae0245570d3))
