@@ -1,4 +1,4 @@
-# Journal App
+# Journal App - Your Thoughts, Your Story!
 
 ## Overview
 
