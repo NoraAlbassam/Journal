@@ -14,7 +14,7 @@ The Journal App offers an organized and private space for users to document thei
 - ## Screenshots
 
 ### Main Journal View
-![Main Journal View](![‏لقطة شاشة ٢٠٢٤-١١-٠٤ في ٣ ٠٠ ٤١ م](https://github.com/user-attachments/assets/6276d038-35de-4449-93a0-446c948e2c02)
+(![‏لقطة شاشة ٢٠٢٤-١١-٠٤ في ٣ ٠٠ ٤١ م](https://github.com/user-attachments/assets/6276d038-35de-4449-93a0-446c948e2c02)
 )
 
 ### Adding a Journal Entry
