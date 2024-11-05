@@ -25,7 +25,7 @@ struct JournalEntryEditor: View {
                     .padding()
                 
                 Spacer()
-            } // here are self-contained actions that modify the state of the app or dismiss the editor PERIODTT
+            } // here are self-contained actions that modify the state of the app or dismiss the editor
             .toolbar {
                 ToolbarItem(placement: .navigationBarLeading) {
                     Button("Cancel") {
