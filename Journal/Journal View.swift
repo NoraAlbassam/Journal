@@ -73,6 +73,7 @@ struct JournalView: View {
                                 .font(.system(size: 24))
                                 .foregroundColor(.lvn)
                         }
+                        .buttonStyle(BorderlessButtonStyle())
                     }
                     Text(entry.date.formatted(date: .numeric, time: .omitted))
                         .font(.subheadline)
@@ -97,7 +98,8 @@ struct JournalView: View {
                 }
             }
         }
-        .searchable(text: $viewModel.searchBar) 
+        .searchable(text: $viewModel.searchBar)
+        .accentColor(.A_4)
         .listRowSpacing(15)
     }
 

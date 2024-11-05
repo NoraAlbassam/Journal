@@ -1,5 +1,5 @@
 import SwiftUI
-
+// modify them
 struct SplashScreen: View {
     @State private var scale: CGFloat = 1.5
     @State private var journalTextOffset: CGFloat = -150
