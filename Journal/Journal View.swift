@@ -99,7 +99,7 @@ struct JournalView: View {
             }
         }
         .searchable(text: $viewModel.searchBar)
-        .accentColor(.A_4)
+        .foregroundColor(.accentColor)
         .listRowSpacing(15)
     }
 
