@@ -47,16 +47,12 @@ Journali allows users to create, edit, and manage personal journal entries. User
 - Tap the bookmark icon to toggle bookmarking on an entry
 - Use the search bar to quickly find journal entries by title or content
 
-## Contributing
-
-Contributions are welcome! Feel free to submit issues or pull requests for improvements or bug fixes
-
-
-
 - ## Screenshots
 
 | Main Journal View | Adding a Journal Entry | Filtering and Searching | Edit/Delete |
 |-------------------|-----------------------|-------------------------|-------------------|
 | <img src="https://github.com/user-attachments/assets/b25be791-80f8-4dca-87c4-ffff8bea9f89" alt="Main Journal View" width="200"/> | <img src="https://github.com/user-attachments/assets/c825b4ba-57cf-4583-b3f7-aa258b91c8d4" alt="Adding a Journal Entry" width="200"/> | <img src="https://github.com/user-attachments/assets/01689e41-b217-40e8-b83c-acc87536dd11" alt="Filtering and Searching" width="200"/> | <img src="https://github.com/user-attachments/assets/cb3fe157-eb16-4ffc-af56-e189d5199173" alt="Edit/Delete Title" width="200"/> |
 
+## Contributing
 
+Contributions are welcome! Feel free to submit issues or pull requests for improvements or bug fixes
