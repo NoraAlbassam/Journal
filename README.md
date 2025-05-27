@@ -1,16 +1,51 @@
-# Journal App - Your Thoughts, Your Story!
+# Journali - Your Thoughts, Your Story!
+
+A simple, clean journaling app built with SwiftUI and SwiftData for iOS.
 
 ## Overview
 
-The **Journal App** is a simple journal application that allows users to record their daily thoughts, events, and reflections. Users can easily add new journal entries, filter by date or bookmarks, and search through entries to quickly find a specific journal.
+Journali allows users to create, edit, and manage personal journal entries. Users can bookmark favorite entries, search through their journals, and sort entries by date. The app features a splash screen and smooth UI with SwiftUI components.
 
-## Why This Project is Useful
+## Features
 
-The Journal App offers an organized and private space for users to document their daily memories. It includes useful tools to help users:
-- Keep track of their day-to-day life. ✨
-- Bookmark significant entries. 📎
-- Quickly search through past entries based on keywords. 🔍
-- Edit and Delete specific entries. 📝
+- Create and save journal entries with title, content, and date
+- Edit and delete existing journal entries
+- Bookmark important entries for easy access
+- Search journal entries by title or content
+- Sort entries by date or filter bookmarked entries
+- Splash screen with animated logo
+- Persistent storage using SwiftData with `@Model` entities
+
+## Technologies
+
+- Swift 5+
+- SwiftUI for user interface
+- SwiftData for local data persistence
+- iOS 17+ (SwiftData requires iOS 17 or newer)
+
+## Architecture
+
+- MVVM (Model-View-ViewModel) design pattern
+- `JournalEntry`: SwiftData data model annotated with `@Model`
+- `JournalViewModel`: Manages journal data operations and business logic
+- `JournalView` and `JournalEntryEditor`: SwiftUI views displaying and editing entries
+
+## Installation
+
+1. Clone the repository:
+
+   ```bash
+   git clone https://github.com/yourusername/journali.git
+- Open `Journali.xcodeproj` in Xcode 15 or newer
+- Build and run on a device or simulator running iOS 17+
+
+## Usage
+
+- Tap the **plus (+)** icon to add a new journal entry
+- Use the filter menu to sort or show bookmarked entries
+- Swipe left on an entry to delete or swipe right to edit
+- Tap the bookmark icon to toggle bookmarking on an entry
+- Use the search bar to quickly find journal entries by title or content
 
 - ## Screenshots
 
@@ -18,4 +53,6 @@ The Journal App offers an organized and private space for users to document thei
 |-------------------|-----------------------|-------------------------|-------------------|
 | <img src="https://github.com/user-attachments/assets/b25be791-80f8-4dca-87c4-ffff8bea9f89" alt="Main Journal View" width="200"/> | <img src="https://github.com/user-attachments/assets/c825b4ba-57cf-4583-b3f7-aa258b91c8d4" alt="Adding a Journal Entry" width="200"/> | <img src="https://github.com/user-attachments/assets/01689e41-b217-40e8-b83c-acc87536dd11" alt="Filtering and Searching" width="200"/> | <img src="https://github.com/user-attachments/assets/cb3fe157-eb16-4ffc-af56-e189d5199173" alt="Edit/Delete Title" width="200"/> |
 
+## Contributing
 
+Contributions are welcome! Feel free to submit issues or pull requests for improvements or bug fixes
