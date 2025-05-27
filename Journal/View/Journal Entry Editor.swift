@@ -29,7 +29,7 @@ struct JournalEntryEditor: View {
             .toolbar {
                 ToolbarItem(placement: .navigationBarLeading) {
                     Button("Cancel") {
-                        onCancel() // here im calling the onCancel closure (same w save down below)
+                        onCancel()
                     }
                     .foregroundColor(Color("A4"))
                 }

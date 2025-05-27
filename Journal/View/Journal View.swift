@@ -1,13 +1,33 @@
 import SwiftUI
+import SwiftData
 
-// now this struct represents the main content of the app's UI (view)
 struct JournalView: View {
+    @Environment(\.modelContext) private var modelContext
+    @Query(sort: \JournalEntry.date, order: .reverse) private var journalEntries: [JournalEntry]
+    
     @StateObject private var viewModel = JournalViewModel()
-
+    
+    private var filteredEntries: [JournalEntry] {
+        let filtered = journalEntries.filter {
+            viewModel.searchBar.isEmpty ||
+            $0.title.localizedCaseInsensitiveContains(viewModel.searchBar) ||
+            $0.content.localizedCaseInsensitiveContains(viewModel.searchBar)
+        }
+        
+        switch viewModel.selectedFilter {
+        case "Bookmarked":
+            return filtered.filter { $0.isBookmarked }
+        case "Sorted by Date":
+            return filtered.sorted { $0.date > $1.date }
+        default:
+            return filtered
+        }
+    }
+    
     var body: some View {
         NavigationView {
             VStack {
-                if viewModel.journalEntries.isEmpty {
+                if filteredEntries.isEmpty {
                     emptyJournalView
                 } else {
                     entriesListView
@@ -16,28 +36,30 @@ struct JournalView: View {
             .navigationTitle("Journal")
             .navigationBarItems(trailing: navigationBarButtons)
             .sheet(isPresented: $viewModel.addingJournal) {
-                JournalEntryEditor(title: $viewModel.title, content: $viewModel.content, onSave: {
-                    viewModel.addEntry()
-                }, onCancel: {
-                    viewModel.resetFields()
-                })
+                JournalEntryEditor(
+                    title: $viewModel.title,
+                    content: $viewModel.content,
+                    onSave: addEntry,
+                    onCancel: viewModel.resetFields
+                )
             }
             .sheet(item: $viewModel.editingJournal) { entry in
-                JournalEntryEditor(title: $viewModel.title, content: $viewModel.content, onSave: {
-                    viewModel.editEntry(entry: entry)
-                }, onCancel: {
-                    viewModel.resetFields()
-                })
+                JournalEntryEditor(
+                    title: $viewModel.title,
+                    content: $viewModel.content,
+                    onSave: {
+                        editEntry(entry: entry)
+                    },
+                    onCancel: viewModel.resetFields
+                )
                 .onAppear {
-                    if let originalEntry = viewModel.editingJournal {
-                        viewModel.title = originalEntry.title
-                        viewModel.content = originalEntry.content
-                    }
+                    viewModel.title = entry.title
+                    viewModel.content = entry.content
                 }
             }
         }
     }
-
+    
     private var emptyJournalView: some View {
         Group {
             Image("bookie")
@@ -53,22 +75,20 @@ struct JournalView: View {
                 .font(.subheadline)
         }
     }
-
+    
     private var entriesListView: some View {
         List {
-            ForEach(viewModel.filteredEntries) { entry in
+            ForEach(filteredEntries) { entry in
                 VStack(alignment: .leading) {
                     HStack {
                         Text(entry.title)
                             .font(.system(size: 24, weight: .bold))
                             .foregroundColor(.lvn)
-
+                        
                         Spacer()
-                        Button(action: {
-                            if let index = viewModel.journalEntries.firstIndex(where: { $0.id == entry.id }) {
-                                viewModel.journalEntries[index].isBookmarked.toggle()
-                            }
-                        }) {
+                        Button {
+                            toggleBookmark(entry: entry)
+                        } label: {
                             Image(systemName: entry.isBookmarked ? "bookmark.fill" : "bookmark")
                                 .font(.system(size: 24))
                                 .foregroundColor(.lvn)
@@ -81,17 +101,17 @@ struct JournalView: View {
                         .font(.body)
                 }
                 .swipeActions(edge: .leading) {
-                    Button(action: {
+                    Button {
                         viewModel.editingJournal = entry
-                    }) {
+                    } label: {
                         Image(systemName: "pencil")
                     }
                     .tint(Color("7F"))
                 }
                 .swipeActions(edge: .trailing) {
-                    Button(action: {
-                        viewModel.deleteEntry(entry: entry)
-                    }) {
+                    Button {
+                        deleteEntry(entry: entry)
+                    } label: {
                         Image(systemName: "trash.fill")
                     }
                     .tint(Color("FF4"))
@@ -102,7 +122,7 @@ struct JournalView: View {
         .foregroundColor(.accentColor)
         .listRowSpacing(15)
     }
-
+    
     private var navigationBarButtons: some View {
         HStack {
             Menu {
@@ -117,13 +137,12 @@ struct JournalView: View {
                         .foregroundColor(.lvn)
                 }
             }
-
-            Button(action: {
-                // this reset fields before presenting the sheet
+            
+            Button {
                 viewModel.title = ""
                 viewModel.content = ""
                 viewModel.addingJournal = true
-            }) {
+            } label: {
                 ZStack {
                     Circle()
                         .fill(Color("1F"))
@@ -131,6 +150,58 @@ struct JournalView: View {
                     Image(systemName: "plus")
                         .foregroundColor(.lvn)
                 }
+            }
+        }
+    }
+        
+    private func addEntry() {
+        let newEntry = JournalEntry(
+            title: viewModel.title,
+            content: viewModel.content,
+            date: Date(),
+            isBookmarked: false
+        )
+        modelContext.insert(newEntry)
+        
+        do {
+            try modelContext.save()
+        } catch {
+            print("Failed to save new entry: \(error)")
+        }
+        
+        viewModel.resetFields()
+    }
+    
+    private func editEntry(entry: JournalEntry) {
+        if let index = journalEntries.firstIndex(where: { $0.id == entry.id }) {
+            journalEntries[index].title = viewModel.title
+            journalEntries[index].content = viewModel.content
+            
+            do {
+                try modelContext.save()
+            } catch {
+                print("Failed to save edited entry: \(error)")
+            }
+        }
+        viewModel.resetFields()
+    }
+    
+    private func deleteEntry(entry: JournalEntry) {
+        modelContext.delete(entry)
+        do {
+            try modelContext.save()
+        } catch {
+            print("Failed to delete entry: \(error)")
+        }
+    }
+    
+    private func toggleBookmark(entry: JournalEntry) {
+        if let index = journalEntries.firstIndex(where: { $0.id == entry.id }) {
+            journalEntries[index].isBookmarked.toggle()
+            do {
+                try modelContext.save()
+            } catch {
+                print("Failed to toggle bookmark: \(error)")
             }
         }
     }

@@ -1,4 +1,6 @@
 import SwiftUI
+import SwiftData
+
 struct SplashScreen: View {
     @State private var scale: CGFloat = 1.5
     @State private var journalTextOffset: CGFloat = -150
@@ -42,8 +44,7 @@ struct SplashScreen: View {
                     }
                 
                 Text("Your thoughts, your story")
-                    . font(. system(size: 18))
-                    
+                    .font(.system(size: 18))
                     .foregroundColor(.white)
                     .offset(x: thoughtsTextOffset)
                     .onAppear {
@@ -54,7 +55,6 @@ struct SplashScreen: View {
             }
             .padding()
             .onAppear {
-                // transition to main page (journal entry) after 1.5 seconds
                 DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
                     withAnimation {
                         showJournalEntry = true
@@ -63,6 +63,7 @@ struct SplashScreen: View {
             }
             .fullScreenCover(isPresented: $showJournalEntry) {
                 JournalView()
+                    .modelContainer(for: JournalEntry.self)
             }
         }
     }
@@ -72,11 +73,13 @@ struct SplashScreen: View {
     SplashScreen()
 }
 
+
 @main
 struct JournalApp: App {
     var body: some Scene {
         WindowGroup {
             SplashScreen()
+                .modelContainer(for: JournalEntry.self)
         }
     }
 }
