@@ -8,27 +8,27 @@ Journali allows users to create, edit, and manage personal journal entries. User
 
 ## Features
 
-- Create and save journal entries with title, content, and date
-- Edit and delete existing journal entries
-- Bookmark important entries for easy access
-- Search journal entries by title or content
-- Sort entries by date or filter bookmarked entries
+- Create and save journal entries with title, content, and date.
+- Edit and delete existing journal entries.
+- Bookmark important entries for easy access.
+- Search journal entries by title or content.
+- Sort entries by date or filter bookmarked entries.
 - Splash screen with animated logo
-- Persistent storage using SwiftData with `@Model` entities
+- Persistent storage using SwiftData with `@Model` entities.
 
 ## Technologies
 
 - Swift 5+
-- SwiftUI for user interface
-- SwiftData for local data persistence
-- iOS 17+ (SwiftData requires iOS 17 or newer)
+- SwiftUI for user interface.
+- SwiftData for local data persistence.
+- iOS 17+ (SwiftData requires iOS 17 or newer).
 
 ## Architecture
 
-- MVVM (Model-View-ViewModel) design pattern
+- MVVM (Model-View-ViewModel) design pattern.
 - `JournalEntry`: SwiftData data model annotated with `@Model`
-- `JournalViewModel`: Manages journal data operations and business logic
-- `JournalView` and `JournalEntryEditor`: SwiftUI views displaying and editing entries
+- `JournalViewModel`: Manages journal data operations and business logic.
+- `JournalView` and `JournalEntryEditor`: SwiftUI views displaying and editing entries.
 
 ## Installation
 
@@ -41,11 +41,11 @@ Journali allows users to create, edit, and manage personal journal entries. User
 
 ## Usage
 
-- Tap the **plus (+)** icon to add a new journal entry
-- Use the filter menu to sort or show bookmarked entries
-- Swipe left on an entry to delete or swipe right to edit
-- Tap the bookmark icon to toggle bookmarking on an entry
-- Use the search bar to quickly find journal entries by title or content
+- Tap the **plus (+)** icon to add a new journal entry.
+- Use the filter menu to sort or show bookmarked entries.
+- Swipe left on an entry to delete or swipe right to edit.
+- Tap the bookmark icon to toggle bookmarking on an entry.
+- Use the search bar to quickly find journal entries by title or content.
 
 - ## Screenshots
 
@@ -55,4 +55,11 @@ Journali allows users to create, edit, and manage personal journal entries. User
 
 ## Contributing
 
-Contributions are welcome! Feel free to submit issues or pull requests for improvements or bug fixes
+Contributions are welcome! Feel free to submit issues or pull requests for improvements or bug fixes :)
+
+## Credits and Acknowledgments
+- **Project Developed by**: Nora Albassam
+- **UI Design by**: Mentor Somayah
+
+This project is intended for personal use only and may not be sold, redistributed, or shared publicly. All rights reserved.
+
